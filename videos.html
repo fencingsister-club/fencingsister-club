@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+     2	<html lang="zh-HK">
+     3	<head>
+     4	    <meta charset="UTF-8">
+     5	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     6	    <title>視頻分享 - Fencingsister.club</title>
+     7	    <link rel="stylesheet" href="css/style.css">
+     8	    <link rel="stylesheet" href="css/videos.css">
+     9	    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    10	    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    11	</head>
+    12	<body>
+    13	    <!-- Navigation -->
+    14	    <nav class="navbar" id="navbar">
+    15	        <div class="nav-container">
+    16	            <div class="nav-logo">
+    17	                <i class="fas fa-chess-knight"></i>
+    18	                <span>Fencingsister.club</span>
+    19	            </div>
+    20	            <ul class="nav-menu" id="navMenu">
+    21	                <li><a href="index.html">首頁</a></li>
+    22	                <li><a href="shop.html">裝備商店</a></li>
+    23	                <li><a href="videos.html" class="active">視頻分享</a></li>
+    24	                <li><a href="coaches.html">教練平台</a></li>
+    25	                <li><a href="clubs.html">俱樂部</a></li>
+    26	                <li><a href="forum.html">社區論壇</a></li>
+    27	                <li><a href="game.html">擊劍遊戲</a></li>
+    28	            </ul>
+    29	            <div class="nav-actions">
+    30	                <button class="btn-primary" onclick="showModal('uploadModal')">
+    31	                    <i class="fas fa-upload"></i> 上傳視頻
+    32	                </button>
+    33	            </div>
+    34	            <div class="nav-toggle" id="navToggle">
+    35	                <span></span>
+    36	                <span></span>
+    37	                <span></span>
+    38	            </div>
+    39	        </div>
+    40	    </nav>
+    41	
+    42	    <!-- Page Header -->
+    43	    <section class="page-header">
+    44	        <div class="container">
+    45	            <h1>擊劍視頻分享</h1>
+    46	            <p>分享精彩時刻，學習技術技巧</p>
+    47	        </div>
+    48	    </section>
+    49	
+    50	    <!-- Videos Section -->
+    51	    <section class="videos-section">
+    52	        <div class="container">
+    53	            <!-- Filter Tabs -->
+    54	            <div class="video-tabs">
+    55	                <button class="tab-btn active" onclick="filterVideos('all')">全部視頻</button>
+    56	                <button class="tab-btn" onclick="filterVideos('competition')">比賽集錦</button>
+    57	                <button class="tab-btn" onclick="filterVideos('tutorial')">教學視頻</button>
+    58	                <button class="tab-btn" onclick="filterVideos('training')">訓練日常</button>
+    59	                <button class="tab-btn" onclick="filterVideos('highlights')">精彩回放</button>
+    60	            </div>
+    61	
+    62	            <!-- Videos Grid -->
+    63	            <div class="videos-grid" id="videosGrid">
+    64	                <!-- Videos will be loaded here -->
+    65	            </div>
+    66	        </div>
+    67	    </section>
+    68	
+    69	    <!-- Upload Modal -->
+    70	    <div id="uploadModal" class="modal">
+    71	        <div class="modal-content">
+    72	            <span class="close" onclick="closeModal('uploadModal')">&times;</span>
+    73	            <h2><i class="fas fa-upload"></i> 上傳視頻</h2>
+    74	            <form class="upload-form" onsubmit="handleUpload(event)">
+    75	                <div class="form-group">
+    76	                    <label>視頻標題</label>
+    77	                    <input type="text" placeholder="輸入視頻標題" required>
+    78	                </div>
+    79	                <div class="form-group">
+    80	                    <label>視頻類別</label>
+    81	                    <select required>
+    82	                        <option value="">請選擇</option>
+    83	                        <option value="competition">比賽集錦</option>
+    84	                        <option value="tutorial">教學視頻</option>
+    85	                        <option value="training">訓練日常</option>
+    86	                        <option value="highlights">精彩回放</option>
+    87	                    </select>
+    88	                </div>
+    89	                <div class="form-group">
+    90	                    <label>視頻描述</label>
+    91	                    <textarea rows="4" placeholder="簡單描述視頻內容..." required></textarea>
+    92	                </div>
+    93	                <div class="form-group">
+    94	                    <label>選擇視頻文件</label>
+    95	                    <div class="file-upload">
+    96	                        <i class="fas fa-cloud-upload-alt"></i>
+    97	                        <p>點擊或拖拽視頻文件到此處</p>
+    98	                        <input type="file" accept="video/*" required>
+    99	                    </div>
+   100	                </div>
+   101	                <button type="submit" class="btn-primary btn-full">上傳視頻</button>
+   102	                <p class="form-note">注意：此為演示網站，實際上傳功能需要後端視頻處理服務</p>
+   103	            </form>
+   104	        </div>
+   105	    </div>
+   106	
+   107	    <!-- Video Player Modal -->
+   108	    <div id="playerModal" class="modal">
+   109	        <div class="modal-content modal-large">
+   110	            <span class="close" onclick="closeModal('playerModal')">&times;</span>
+   111	            <div id="videoPlayer"></div>
+   112	        </div>
+   113	    </div>
+   114	
+   115	    <!-- Footer -->
+   116	    <footer class="footer">
+   117	        <div class="container">
+   118	            <div class="footer-content">
+   119	                <div class="footer-section">
+   120	                    <h3><i class="fas fa-chess-knight"></i> Fencingsister.club</h3>
+   121	                    <p>香港最大的擊劍社區平台</p>
+   122	                </div>
+   123	                <div class="footer-section">
+   124	                    <h4>快速連結</h4>
+   125	                    <ul>
+   126	                        <li><a href="index.html">首頁</a></li>
+   127	                        <li><a href="shop.html">裝備商店</a></li>
+   128	                        <li><a href="coaches.html">教練平台</a></li>
+   129	                    </ul>
+   130	                </div>
+   131	            </div>
+   132	            <div class="footer-bottom">
+   133	                <p>&copy; 2026 Fencingsister.club. All rights reserved.</p>
+   134	            </div>
+   135	        </div>
+   136	    </footer>
+   137	
+   138	    <script src="js/main.js"></script>
+   139	    <script src="js/videos.js"></script>
+   140	</body>
+   141	</html>
