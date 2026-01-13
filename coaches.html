@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+     2	<html lang="zh-HK">
+     3	<head>
+     4	    <meta charset="UTF-8">
+     5	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     6	    <title>教練平台 - Fencingsister.club</title>
+     7	    <link rel="stylesheet" href="css/style.css">
+     8	    <link rel="stylesheet" href="css/coaches.css">
+     9	    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    10	    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    11	</head>
+    12	<body>
+    13	    <nav class="navbar" id="navbar">
+    14	        <div class="nav-container">
+    15	            <div class="nav-logo">
+    16	                <i class="fas fa-chess-knight"></i>
+    17	                <span>Fencingsister.club</span>
+    18	            </div>
+    19	            <ul class="nav-menu" id="navMenu">
+    20	                <li><a href="index.html">首頁</a></li>
+    21	                <li><a href="shop.html">裝備商店</a></li>
+    22	                <li><a href="videos.html">視頻分享</a></li>
+    23	                <li><a href="coaches.html" class="active">教練平台</a></li>
+    24	                <li><a href="clubs.html">俱樂部</a></li>
+    25	                <li><a href="forum.html">社區論壇</a></li>
+    26	                <li><a href="game.html">擊劍遊戲</a></li>
+    27	            </ul>
+    28	            <div class="nav-actions">
+    29	                <button class="btn-primary" onclick="showModal('registerCoachModal')">
+    30	                    成為教練
+    31	                </button>
+    32	            </div>
+    33	            <div class="nav-toggle" id="navToggle">
+    34	                <span></span>
+    35	                <span></span>
+    36	                <span></span>
+    37	            </div>
+    38	        </div>
+    39	    </nav>
+    40	
+    41	    <section class="page-header">
+    42	        <div class="container">
+    43	            <h1>專業擊劍教練</h1>
+    44	            <p>預約一對一訓練，提升你的擊劍技術</p>
+    45	        </div>
+    46	    </section>
+    47	
+    48	    <section class="coaches-section">
+    49	        <div class="container">
+    50	            <div class="coaches-toolbar">
+    51	                <div class="search-box">
+    52	                    <i class="fas fa-search"></i>
+    53	                    <input type="text" id="searchCoach" placeholder="搜索教練..." onkeyup="searchCoaches()">
+    54	                </div>
+    55	                <select id="filterSpecialty" onchange="filterCoaches()">
+    56	                    <option value="all">全部專項</option>
+    57	                    <option value="epee">重劍</option>
+    58	                    <option value="foil">花劍</option>
+    59	                    <option value="sabre">佩劍</option>
+    60	                </select>
+    61	                <select id="filterLevel" onchange="filterCoaches()">
+    62	                    <option value="all">全部級別</option>
+    63	                    <option value="beginner">初級</option>
+    64	                    <option value="intermediate">中級</option>
+    65	                    <option value="advanced">高級</option>
+    66	                </select>
+    67	            </div>
+    68	
+    69	            <div class="coaches-grid" id="coachesGrid"></div>
+    70	        </div>
+    71	    </section>
+    72	
+    73	    <!-- Coach Profile Modal -->
+    74	    <div id="coachModal" class="modal">
+    75	        <div class="modal-content modal-large">
+    76	            <span class="close" onclick="closeModal('coachModal')">&times;</span>
+    77	            <div id="coachProfile"></div>
+    78	        </div>
+    79	    </div>
+    80	
+    81	    <!-- Register as Coach Modal -->
+    82	    <div id="registerCoachModal" class="modal">
+    83	        <div class="modal-content">
+    84	            <span class="close" onclick="closeModal('registerCoachModal')">&times;</span>
+    85	            <h2>註冊成為教練</h2>
+    86	            <form class="auth-form" onsubmit="handleCoachRegistration(event)">
+    87	                <div class="form-group">
+    88	                    <label>姓名</label>
+    89	                    <input type="text" required>
+    90	                </div>
+    91	                <div class="form-group">
+    92	                    <label>專項</label>
+    93	                    <select required>
+    94	                        <option value="">請選擇</option>
+    95	                        <option value="epee">重劍</option>
+    96	                        <option value="foil">花劍</option>
+    97	                        <option value="sabre">佩劍</option>
+    98	                        <option value="all">全項</option>
+    99	                    </select>
+   100	                </div>
+   101	                <div class="form-group">
+   102	                    <label>教學經驗（年）</label>
+   103	                    <input type="number" min="0" required>
+   104	                </div>
+   105	                <div class="form-group">
+   106	                    <label>資格證書</label>
+   107	                    <textarea rows="3" placeholder="請列出您的教練資格證書..."></textarea>
+   108	                </div>
+   109	                <div class="form-group">
+   110	                    <label>時薪（HKD）</label>
+   111	                    <input type="number" min="100" required>
+   112	                </div>
+   113	                <button type="submit" class="btn-primary btn-full">提交申請</button>
+   114	                <p class="form-note">平台將收取15%服務費</p>
+   115	            </form>
+   116	        </div>
+   117	    </div>
+   118	
+   119	    <footer class="footer">
+   120	        <div class="container">
+   121	            <div class="footer-content">
+   122	                <div class="footer-section">
+   123	                    <h3><i class="fas fa-chess-knight"></i> Fencingsister.club</h3>
+   124	                    <p>香港最大的擊劍社區平台</p>
+   125	                </div>
+   126	            </div>
+   127	            <div class="footer-bottom">
+   128	                <p>&copy; 2026 Fencingsister.club. All rights reserved.</p>
+   129	            </div>
+   130	        </div>
+   131	    </footer>
+   132	
+   133	    <script src="js/main.js"></script>
+   134	    <script src="js/coaches.js"></script>
+   135	</body>
+   136	</html>
