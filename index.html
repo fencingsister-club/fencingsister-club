@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+     2	<html lang="zh-HK">
+     3	<head>
+     4	    <meta charset="UTF-8">
+     5	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     6	    <title>Fencingsister.club - 香港擊劍社區平台</title>
+     7	    <link rel="stylesheet" href="css/style.css">
+     8	    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+     9	    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@300;400;500;600;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    10	</head>
+    11	<body>
+    12	    <!-- Navigation -->
+    13	    <nav class="navbar" id="navbar">
+    14	        <div class="nav-container">
+    15	            <div class="nav-logo">
+    16	                <i class="fas fa-chess-knight"></i>
+    17	                <span>Fencingsister.club</span>
+    18	            </div>
+    19	            <ul class="nav-menu" id="navMenu">
+    20	                <li><a href="index.html" class="active">首頁</a></li>
+    21	                <li><a href="shop.html">裝備商店</a></li>
+    22	                <li><a href="videos.html">視頻分享</a></li>
+    23	                <li><a href="coaches.html">教練平台</a></li>
+    24	                <li><a href="clubs.html">俱樂部</a></li>
+    25	                <li><a href="forum.html">社區論壇</a></li>
+    26	                <li><a href="game.html">擊劍遊戲</a></li>
+    27	            </ul>
+    28	            <div class="nav-actions">
+    29	                <button class="btn-secondary" onclick="showModal('loginModal')">登入</button>
+    30	                <button class="btn-primary" onclick="showModal('registerModal')">註冊</button>
+    31	            </div>
+    32	            <div class="nav-toggle" id="navToggle">
+    33	                <span></span>
+    34	                <span></span>
+    35	                <span></span>
+    36	            </div>
+    37	        </div>
+    38	    </nav>
+    39	
+    40	    <!-- Hero Section -->
+    41	    <section class="hero">
+    42	        <div class="hero-overlay"></div>
+    43	        <div class="hero-content">
+    44	            <h1 class="hero-title">歡迎來到 Fencingsister 擊劍社區</h1>
+    45	            <p class="hero-subtitle">香港最大的擊劍愛好者聚集地</p>
+    46	            <p class="hero-description">購買裝備 · 預約教練 · 租借劍道 · 分享視頻 · 社群交流</p>
+    47	            <div class="hero-buttons">
+    48	                <button class="btn-hero-primary" onclick="showModal('registerModal')">立即加入</button>
+    49	                <button class="btn-hero-secondary" onclick="scrollToSection('features')">探索更多</button>
+    50	            </div>
+    51	            <div class="hero-stats">
+    52	                <div class="stat-item">
+    53	                    <div class="stat-number">500+</div>
+    54	                    <div class="stat-label">註冊會員</div>
+    55	                </div>
+    56	                <div class="stat-item">
+    57	                    <div class="stat-number">50+</div>
+    58	                    <div class="stat-label">認證教練</div>
+    59	                </div>
+    60	                <div class="stat-item">
+    61	                    <div class="stat-number">20+</div>
+    62	                    <div class="stat-label">合作俱樂部</div>
+    63	                </div>
+    64	            </div>
+    65	        </div>
+    66	    </section>
+    67	
+    68	    <!-- Features Section -->
+    69	    <section class="features" id="features">
+    70	        <div class="container">
+    71	            <h2 class="section-title">平台功能</h2>
+    72	            <p class="section-subtitle">一站式擊劍社區服務</p>
+    73	            <div class="features-grid">
+    74	                <div class="feature-card">
+    75	                    <div class="feature-icon">
+    76	                        <i class="fas fa-shopping-bag"></i>
+    77	                    </div>
+    78	                    <h3>裝備商店</h3>
+    79	                    <p>精選擊劍裝備，劍、護具、服裝應有盡有，專業品質保證</p>
+    80	                    <a href="shop.html" class="feature-link">前往選購 <i class="fas fa-arrow-right"></i></a>
+    81	                </div>
+    82	                <div class="feature-card">
+    83	                    <div class="feature-icon">
+    84	                        <i class="fas fa-video"></i>
+    85	                    </div>
+    86	                    <h3>視頻分享</h3>
+    87	                    <p>分享你的擊劍時刻，觀看其他劍手的精彩對戰與技巧教學</p>
+    88	                    <a href="videos.html" class="feature-link">瀏覽視頻 <i class="fas fa-arrow-right"></i></a>
+    89	                </div>
+    90	                <div class="feature-card">
+    91	                    <div class="feature-icon">
+    92	                        <i class="fas fa-user-tie"></i>
+    93	                    </div>
+    94	                    <h3>教練平台</h3>
+    95	                    <p>預約專業教練一對一訓練，靈活時間，按次付費</p>
+    96	                    <a href="coaches.html" class="feature-link">尋找教練 <i class="fas fa-arrow-right"></i></a>
+    97	                </div>
+    98	                <div class="feature-card">
+    99	                    <div class="feature-icon">
+   100	                        <i class="fas fa-map-marker-alt"></i>
+   101	                    </div>
+   102	                    <h3>俱樂部租借</h3>
+   103	                    <p>預訂香港各區擊劍俱樂部的劍道，自主練習或友誼賽</p>
+   104	                    <a href="clubs.html" class="feature-link">預訂劍道 <i class="fas fa-arrow-right"></i></a>
+   105	                </div>
+   106	                <div class="feature-card">
+   107	                    <div class="feature-icon">
+   108	                        <i class="fas fa-comments"></i>
+   109	                    </div>
+   110	                    <h3>社區論壇</h3>
+   111	                    <p>與擊劍愛好者交流心得、討論技術、分享比賽經驗</p>
+   112	                    <a href="forum.html" class="feature-link">加入討論 <i class="fas fa-arrow-right"></i></a>
+   113	                </div>
+   114	                <div class="feature-card">
+   115	                    <div class="feature-icon">
+   116	                        <i class="fas fa-gamepad"></i>
+   117	                    </div>
+   118	                    <h3>擊劍遊戲</h3>
+   119	                    <p>玩有趣的擊劍小遊戲，提升反應速度和戰術思維</p>
+   120	                    <a href="game.html" class="feature-link">開始遊戲 <i class="fas fa-arrow-right"></i></a>
+   121	                </div>
+   122	            </div>
+   123	        </div>
+   124	    </section>
+   125	
+   126	    <!-- How It Works -->
+   127	    <section class="how-it-works">
+   128	        <div class="container">
+   129	            <h2 class="section-title">如何使用</h2>
+   130	            <div class="steps">
+   131	                <div class="step">
+   132	                    <div class="step-number">1</div>
+   133	                    <div class="step-icon"><i class="fas fa-user-plus"></i></div>
+   134	                    <h3>註冊帳號</h3>
+   135	                    <p>免費註冊成為會員，享受完整平台服務</p>
+   136	                </div>
+   137	                <div class="step-arrow"><i class="fas fa-arrow-right"></i></div>
+   138	                <div class="step">
+   139	                    <div class="step-number">2</div>
+   140	                    <div class="step-icon"><i class="fas fa-search"></i></div>
+   141	                    <h3>探索服務</h3>
+   142	                    <p>瀏覽裝備、尋找教練、預約劍道</p>
+   143	                </div>
+   144	                <div class="step-arrow"><i class="fas fa-arrow-right"></i></div>
+   145	                <div class="step">
+   146	                    <div class="step-number">3</div>
+   147	                    <div class="step-icon"><i class="fas fa-calendar-check"></i></div>
+   148	                    <h3>預約訓練</h3>
+   149	                    <p>選擇合適的時間地點，開始你的擊劍之旅</p>
+   150	                </div>
+   151	                <div class="step-arrow"><i class="fas fa-arrow-right"></i></div>
+   152	                <div class="step">
+   153	                    <div class="step-number">4</div>
+   154	                    <div class="step-icon"><i class="fas fa-share-alt"></i></div>
+   155	                    <h3>分享成長</h3>
+   156	                    <p>上傳視頻，在論壇交流，與社區互動</p>
+   157	                </div>
+   158	            </div>
+   159	        </div>
+   160	    </section>
+   161	
+   162	    <!-- CTA Section -->
+   163	    <section class="cta">
+   164	        <div class="container">
+   165	            <h2>準備好開始你的擊劍之旅了嗎？</h2>
+   166	            <p>加入 Fencingsister 社區，與香港擊劍愛好者一起進步</p>
+   167	            <button class="btn-cta" onclick="showModal('registerModal')">免費註冊</button>
+   168	        </div>
+   169	    </section>
+   170	
+   171	    <!-- Footer -->
+   172	    <footer class="footer">
+   173	        <div class="container">
+   174	            <div class="footer-content">
+   175	                <div class="footer-section">
+   176	                    <h3><i class="fas fa-chess-knight"></i> Fencingsister.club</h3>
+   177	                    <p>香港最大的擊劍社區平台，連結劍手、教練與俱樂部</p>
+   178	                    <div class="social-links">
+   179	                        <a href="https://www.instagram.com/archive/stories/" target="_blank"><i class="fab fa-instagram"></i></a>
+   180	                        <a href="#"><i class="fab fa-facebook"></i></a>
+   181	                        <a href="#"><i class="fab fa-youtube"></i></a>
+   182	                        <a href="#"><i class="fab fa-twitter"></i></a>
+   183	                    </div>
+   184	                </div>
+   185	                <div class="footer-section">
+   186	                    <h4>快速連結</h4>
+   187	                    <ul>
+   188	                        <li><a href="shop.html">裝備商店</a></li>
+   189	                        <li><a href="coaches.html">教練平台</a></li>
+   190	                        <li><a href="clubs.html">俱樂部</a></li>
+   191	                        <li><a href="videos.html">視頻分享</a></li>
+   192	                    </ul>
+   193	                </div>
+   194	                <div class="footer-section">
+   195	                    <h4>服務支援</h4>
+   196	                    <ul>
+   197	                        <li><a href="#">常見問題</a></li>
+   198	                        <li><a href="#">聯絡我們</a></li>
+   199	                        <li><a href="#">使用條款</a></li>
+   200	                        <li><a href="#">隱私政策</a></li>
+   201	                    </ul>
+   202	                </div>
+   203	                <div class="footer-section">
+   204	                    <h4>聯絡資訊</h4>
+   205	                    <ul>
+   206	                        <li><i class="fas fa-envelope"></i> info@fencingsister.club</li>
+   207	                        <li><i class="fas fa-phone"></i> +852 1234 5678</li>
+   208	                        <li><i class="fas fa-map-marker-alt"></i> 香港</li>
+   209	                    </ul>
+   210	                </div>
+   211	            </div>
+   212	            <div class="footer-bottom">
+   213	                <p>&copy; 2026 Fencingsister.club. All rights reserved. | 演示原型網站</p>
+   214	            </div>
+   215	        </div>
+   216	    </footer>
+   217	
+   218	    <!-- Login Modal -->
+   219	    <div id="loginModal" class="modal">
+   220	        <div class="modal-content">
+   221	            <span class="close" onclick="closeModal('loginModal')">&times;</span>
+   222	            <h2>登入帳號</h2>
+   223	            <form class="auth-form">
+   224	                <div class="form-group">
+   225	                    <label>電郵地址</label>
+   226	                    <input type="email" placeholder="your@email.com" required>
+   227	                </div>
+   228	                <div class="form-group">
+   229	                    <label>密碼</label>
+   230	                    <input type="password" placeholder="輸入密碼" required>
+   231	                </div>
+   232	                <button type="submit" class="btn-primary btn-full">登入</button>
+   233	                <p class="form-footer">還沒有帳號？ <a href="#" onclick="switchModal('loginModal', 'registerModal')">立即註冊</a></p>
+   234	            </form>
+   235	        </div>
+   236	    </div>
+   237	
+   238	    <!-- Register Modal -->
+   239	    <div id="registerModal" class="modal">
+   240	        <div class="modal-content">
+   241	            <span class="close" onclick="closeModal('registerModal')">&times;</span>
+   242	            <h2>註冊帳號</h2>
+   243	            <form class="auth-form">
+   244	                <div class="form-group">
+   245	                    <label>姓名</label>
+   246	                    <input type="text" placeholder="輸入姓名" required>
+   247	                </div>
+   248	                <div class="form-group">
+   249	                    <label>電郵地址</label>
+   250	                    <input type="email" placeholder="your@email.com" required>
+   251	                </div>
+   252	                <div class="form-group">
+   253	                    <label>密碼</label>
+   254	                    <input type="password" placeholder="至少8個字符" required>
+   255	                </div>
+   256	                <div class="form-group">
+   257	                    <label>用戶類型</label>
+   258	                    <select required>
+   259	                        <option value="">請選擇</option>
+   260	                        <option value="fencer">擊劍愛好者</option>
+   261	                        <option value="coach">教練</option>
+   262	                        <option value="club">俱樂部管理員</option>
+   263	                    </select>
+   264	                </div>
+   265	                <button type="submit" class="btn-primary btn-full">註冊</button>
+   266	                <p class="form-footer">已有帳號？ <a href="#" onclick="switchModal('registerModal', 'loginModal')">立即登入</a></p>
+   267	            </form>
+   268	        </div>
+   269	    </div>
+   270	
+   271	    <script src="js/main.js"></script>
+   272	</body>
+   273	</html>
