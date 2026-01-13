@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+     2	<html lang="zh-HK">
+     3	<head>
+     4	    <meta charset="UTF-8">
+     5	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     6	    <title>俱樂部預訂 - Fencingsister.club</title>
+     7	    <link rel="stylesheet" href="css/style.css">
+     8	    <link rel="stylesheet" href="css/clubs.css">
+     9	    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    10	    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    11	</head>
+    12	<body>
+    13	    <nav class="navbar" id="navbar">
+    14	        <div class="nav-container">
+    15	            <div class="nav-logo">
+    16	                <i class="fas fa-chess-knight"></i>
+    17	                <span>Fencingsister.club</span>
+    18	            </div>
+    19	            <ul class="nav-menu" id="navMenu">
+    20	                <li><a href="index.html">首頁</a></li>
+    21	                <li><a href="shop.html">裝備商店</a></li>
+    22	                <li><a href="videos.html">視頻分享</a></li>
+    23	                <li><a href="coaches.html">教練平台</a></li>
+    24	                <li><a href="clubs.html" class="active">俱樂部</a></li>
+    25	                <li><a href="forum.html">社區論壇</a></li>
+    26	                <li><a href="game.html">擊劍遊戲</a></li>
+    27	            </ul>
+    28	            <div class="nav-actions">
+    29	                <button class="btn-secondary" onclick="showModal('loginModal')">登入</button>
+    30	            </div>
+    31	            <div class="nav-toggle" id="navToggle"><span></span><span></span><span></span></div>
+    32	        </div>
+    33	    </nav>
+    34	
+    35	    <section class="page-header">
+    36	        <div class="container">
+    37	            <h1>擊劍俱樂部</h1>
+    38	            <p>預訂香港各區的擊劍場地</p>
+    39	        </div>
+    40	    </section>
+    41	
+    42	    <section class="clubs-section">
+    43	        <div class="container">
+    44	            <div class="filter-bar">
+    45	                <select id="districtFilter" onchange="filterClubs()">
+    46	                    <option value="all">全部地區</option>
+    47	                    <option value="hk">港島區</option>
+    48	                    <option value="kln">九龍區</option>
+    49	                    <option value="nt">新界區</option>
+    50	                </select>
+    51	            </div>
+    52	            <div class="clubs-grid" id="clubsGrid"></div>
+    53	        </div>
+    54	    </section>
+    55	
+    56	    <div id="bookingModal" class="modal">
+    57	        <div class="modal-content modal-large">
+    58	            <span class="close" onclick="closeModal('bookingModal')">&times;</span>
+    59	            <div id="bookingContent"></div>
+    60	        </div>
+    61	    </div>
+    62	
+    63	    <footer class="footer">
+    64	        <div class="container">
+    65	            <div class="footer-bottom">
+    66	                <p>&copy; 2026 Fencingsister.club. All rights reserved.</p>
+    67	            </div>
+    68	        </div>
+    69	    </footer>
+    70	
+    71	    <script src="js/main.js"></script>
+    72	    <script src="js/clubs.js"></script>
+    73	</body>
+    74	</html>
