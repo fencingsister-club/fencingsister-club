@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+     2	<html lang="zh-HK">
+     3	<head>
+     4	    <meta charset="UTF-8">
+     5	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     6	    <title>裝備商店 - Fencingsister.club</title>
+     7	    <link rel="stylesheet" href="css/style.css">
+     8	    <link rel="stylesheet" href="css/shop.css">
+     9	    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    10	    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@300;400;500;600;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    11	</head>
+    12	<body>
+    13	    <!-- Navigation -->
+    14	    <nav class="navbar" id="navbar">
+    15	        <div class="nav-container">
+    16	            <div class="nav-logo">
+    17	                <i class="fas fa-chess-knight"></i>
+    18	                <span>Fencingsister.club</span>
+    19	            </div>
+    20	            <ul class="nav-menu" id="navMenu">
+    21	                <li><a href="index.html">首頁</a></li>
+    22	                <li><a href="shop.html" class="active">裝備商店</a></li>
+    23	                <li><a href="videos.html">視頻分享</a></li>
+    24	                <li><a href="coaches.html">教練平台</a></li>
+    25	                <li><a href="clubs.html">俱樂部</a></li>
+    26	                <li><a href="forum.html">社區論壇</a></li>
+    27	                <li><a href="game.html">擊劍遊戲</a></li>
+    28	            </ul>
+    29	            <div class="nav-actions">
+    30	                <button class="btn-icon" onclick="showModal('cartModal')">
+    31	                    <i class="fas fa-shopping-cart"></i>
+    32	                    <span class="badge" id="cartCount">0</span>
+    33	                </button>
+    34	                <button class="btn-secondary" onclick="showModal('loginModal')">登入</button>
+    35	            </div>
+    36	            <div class="nav-toggle" id="navToggle">
+    37	                <span></span>
+    38	                <span></span>
+    39	                <span></span>
+    40	            </div>
+    41	        </div>
+    42	    </nav>
+    43	
+    44	    <!-- Page Header -->
+    45	    <section class="page-header">
+    46	        <div class="container">
+    47	            <h1>擊劍裝備商店</h1>
+    48	            <p>專業擊劍裝備，品質保證</p>
+    49	        </div>
+    50	    </section>
+    51	
+    52	    <!-- Shop Section -->
+    53	    <section class="shop-section">
+    54	        <div class="container">
+    55	            <div class="shop-layout">
+    56	                <!-- Filters Sidebar -->
+    57	                <aside class="shop-filters">
+    58	                    <h3>篩選條件</h3>
+    59	                    
+    60	                    <div class="filter-group">
+    61	                        <h4>類別</h4>
+    62	                        <label class="filter-option">
+    63	                            <input type="checkbox" value="sword" onchange="filterProducts()">
+    64	                            <span>劍</span>
+    65	                        </label>
+    66	                        <label class="filter-option">
+    67	                            <input type="checkbox" value="mask" onchange="filterProducts()">
+    68	                            <span>面罩</span>
+    69	                        </label>
+    70	                        <label class="filter-option">
+    71	                            <input type="checkbox" value="jacket" onchange="filterProducts()">
+    72	                            <span>擊劍服</span>
+    73	                        </label>
+    74	                        <label class="filter-option">
+    75	                            <input type="checkbox" value="glove" onchange="filterProducts()">
+    76	                            <span>手套</span>
+    77	                        </label>
+    78	                        <label class="filter-option">
+    79	                            <input type="checkbox" value="accessories" onchange="filterProducts()">
+    80	                            <span>配件</span>
+    81	                        </label>
+    82	                    </div>
+    83	
+    84	                    <div class="filter-group">
+    85	                        <h4>價格範圍</h4>
+    86	                        <label class="filter-option">
+    87	                            <input type="radio" name="price" value="all" checked onchange="filterProducts()">
+    88	                            <span>全部</span>
+    89	                        </label>
+    90	                        <label class="filter-option">
+    91	                            <input type="radio" name="price" value="0-1000" onchange="filterProducts()">
+    92	                            <span>HKD 0 - 1,000</span>
+    93	                        </label>
+    94	                        <label class="filter-option">
+    95	                            <input type="radio" name="price" value="1000-3000" onchange="filterProducts()">
+    96	                            <span>HKD 1,000 - 3,000</span>
+    97	                        </label>
+    98	                        <label class="filter-option">
+    99	                            <input type="radio" name="price" value="3000+" onchange="filterProducts()">
+   100	                            <span>HKD 3,000+</span>
+   101	                        </label>
+   102	                    </div>
+   103	
+   104	                    <div class="filter-group">
+   105	                        <h4>品牌</h4>
+   106	                        <label class="filter-option">
+   107	                            <input type="checkbox" value="allstar" onchange="filterProducts()">
+   108	                            <span>Allstar</span>
+   109	                        </label>
+   110	                        <label class="filter-option">
+   111	                            <input type="checkbox" value="leon-paul" onchange="filterProducts()">
+   112	                            <span>Leon Paul</span>
+   113	                        </label>
+   114	                        <label class="filter-option">
+   115	                            <input type="checkbox" value="absolute" onchange="filterProducts()">
+   116	                            <span>Absolute</span>
+   117	                        </label>
+   118	                    </div>
+   119	                </aside>
+   120	
+   121	                <!-- Products Grid -->
+   122	                <div class="shop-main">
+   123	                    <div class="shop-toolbar">
+   124	                        <div class="search-box">
+   125	                            <i class="fas fa-search"></i>
+   126	                            <input type="text" id="searchInput" placeholder="搜索產品..." onkeyup="searchProducts()">
+   127	                        </div>
+   128	                        <select id="sortSelect" onchange="sortProducts()">
+   129	                            <option value="newest">最新上架</option>
+   130	                            <option value="price-low">價格：低至高</option>
+   131	                            <option value="price-high">價格：高至低</option>
+   132	                            <option value="popular">最受歡迎</option>
+   133	                        </select>
+   134	                    </div>
+   135	
+   136	                    <div class="products-grid" id="productsGrid">
+   137	                        <!-- Products will be loaded here by JavaScript -->
+   138	                    </div>
+   139	
+   140	                    <div class="pagination">
+   141	                        <button class="btn-page" disabled>&laquo; 上一頁</button>
+   142	                        <button class="btn-page active">1</button>
+   143	                        <button class="btn-page">2</button>
+   144	                        <button class="btn-page">3</button>
+   145	                        <button class="btn-page">下一頁 &raquo;</button>
+   146	                    </div>
+   147	                </div>
+   148	            </div>
+   149	        </div>
+   150	    </section>
+   151	
+   152	    <!-- Cart Modal -->
+   153	    <div id="cartModal" class="modal">
+   154	        <div class="modal-content modal-large">
+   155	            <span class="close" onclick="closeModal('cartModal')">&times;</span>
+   156	            <h2><i class="fas fa-shopping-cart"></i> 購物車</h2>
+   157	            <div id="cartItems" class="cart-items">
+   158	                <p class="empty-cart">購物車是空的</p>
+   159	            </div>
+   160	            <div class="cart-summary">
+   161	                <div class="summary-row">
+   162	                    <span>小計：</span>
+   163	                    <span id="cartSubtotal">HKD 0</span>
+   164	                </div>
+   165	                <div class="summary-row">
+   166	                    <span>運費：</span>
+   167	                    <span>免費</span>
+   168	                </div>
+   169	                <div class="summary-row total">
+   170	                    <span>總計：</span>
+   171	                    <span id="cartTotal">HKD 0</span>
+   172	                </div>
+   173	                <button class="btn-primary btn-full" onclick="checkout()">結帳</button>
+   174	            </div>
+   175	        </div>
+   176	    </div>
+   177	
+   178	    <!-- Product Detail Modal -->
+   179	    <div id="productModal" class="modal">
+   180	        <div class="modal-content modal-large">
+   181	            <span class="close" onclick="closeModal('productModal')">&times;</span>
+   182	            <div id="productDetail" class="product-detail">
+   183	                <!-- Product detail will be loaded here -->
+   184	            </div>
+   185	        </div>
+   186	    </div>
+   187	
+   188	    <!-- Footer -->
+   189	    <footer class="footer">
+   190	        <div class="container">
+   191	            <div class="footer-content">
+   192	                <div class="footer-section">
+   193	                    <h3><i class="fas fa-chess-knight"></i> Fencingsister.club</h3>
+   194	                    <p>香港最大的擊劍社區平台</p>
+   195	                    <div class="social-links">
+   196	                        <a href="https://www.instagram.com/archive/stories/" target="_blank"><i class="fab fa-instagram"></i></a>
+   197	                        <a href="#"><i class="fab fa-facebook"></i></a>
+   198	                        <a href="#"><i class="fab fa-youtube"></i></a>
+   199	                    </div>
+   200	                </div>
+   201	                <div class="footer-section">
+   202	                    <h4>快速連結</h4>
+   203	                    <ul>
+   204	                        <li><a href="shop.html">裝備商店</a></li>
+   205	                        <li><a href="coaches.html">教練平台</a></li>
+   206	                        <li><a href="clubs.html">俱樂部</a></li>
+   207	                    </ul>
+   208	                </div>
+   209	                <div class="footer-section">
+   210	                    <h4>客戶服務</h4>
+   211	                    <ul>
+   212	                        <li><a href="#">運送資訊</a></li>
+   213	                        <li><a href="#">退換貨政策</a></li>
+   214	                        <li><a href="#">常見問題</a></li>
+   215	                    </ul>
+   216	                </div>
+   217	                <div class="footer-section">
+   218	                    <h4>聯絡資訊</h4>
+   219	                    <ul>
+   220	                        <li><i class="fas fa-envelope"></i> shop@fencingsister.club</li>
+   221	                        <li><i class="fas fa-phone"></i> +852 1234 5678</li>
+   222	                    </ul>
+   223	                </div>
+   224	            </div>
+   225	            <div class="footer-bottom">
+   226	                <p>&copy; 2026 Fencingsister.club. All rights reserved.</p>
+   227	            </div>
+   228	        </div>
+   229	    </footer>
+   230	
+   231	    <script src="js/main.js"></script>
+   232	    <script src="js/shop.js"></script>
+   233	</body>
+   234	</html>
