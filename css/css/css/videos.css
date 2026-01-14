@@ -1,0 +1,278 @@
+/* ==================== Videos Section ==================== */
+     2	.videos-section {
+     3	    padding: 3rem 0;
+     4	    background: var(--bg-light);
+     5	    min-height: 70vh;
+     6	}
+     7	
+     8	.video-tabs {
+     9	    display: flex;
+    10	    gap: 1rem;
+    11	    margin-bottom: 2rem;
+    12	    flex-wrap: wrap;
+    13	    justify-content: center;
+    14	}
+    15	
+    16	.tab-btn {
+    17	    padding: 0.75rem 1.5rem;
+    18	    border: 2px solid var(--border-color);
+    19	    background: white;
+    20	    border-radius: 25px;
+    21	    cursor: pointer;
+    22	    transition: var(--transition);
+    23	    font-weight: 600;
+    24	    color: var(--text-dark);
+    25	}
+    26	
+    27	.tab-btn:hover {
+    28	    border-color: var(--primary-color);
+    29	    color: var(--primary-color);
+    30	}
+    31	
+    32	.tab-btn.active {
+    33	    background: var(--primary-color);
+    34	    color: white;
+    35	    border-color: var(--primary-color);
+    36	}
+    37	
+    38	.videos-grid {
+    39	    display: grid;
+    40	    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    41	    gap: 2rem;
+    42	}
+    43	
+    44	.video-card {
+    45	    background: white;
+    46	    border-radius: 12px;
+    47	    overflow: hidden;
+    48	    box-shadow: var(--shadow);
+    49	    transition: var(--transition);
+    50	    cursor: pointer;
+    51	}
+    52	
+    53	.video-card:hover {
+    54	    transform: translateY(-5px);
+    55	    box-shadow: var(--shadow-lg);
+    56	}
+    57	
+    58	.video-thumbnail {
+    59	    position: relative;
+    60	    width: 100%;
+    61	    height: 200px;
+    62	    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    63	    display: flex;
+    64	    align-items: center;
+    65	    justify-content: center;
+    66	    color: white;
+    67	    font-size: 3rem;
+    68	}
+    69	
+    70	.video-duration {
+    71	    position: absolute;
+    72	    bottom: 10px;
+    73	    right: 10px;
+    74	    background: rgba(0, 0, 0, 0.8);
+    75	    color: white;
+    76	    padding: 0.3rem 0.6rem;
+    77	    border-radius: 5px;
+    78	    font-size: 0.85rem;
+    79	    font-weight: 600;
+    80	}
+    81	
+    82	.video-info {
+    83	    padding: 1.5rem;
+    84	}
+    85	
+    86	.video-category {
+    87	    display: inline-block;
+    88	    background: var(--bg-light);
+    89	    color: var(--primary-color);
+    90	    padding: 0.3rem 0.8rem;
+    91	    border-radius: 15px;
+    92	    font-size: 0.85rem;
+    93	    font-weight: 600;
+    94	    margin-bottom: 0.75rem;
+    95	}
+    96	
+    97	.video-title {
+    98	    font-size: 1.2rem;
+    99	    font-weight: 600;
+   100	    margin-bottom: 0.5rem;
+   101	    color: var(--text-dark);
+   102	    display: -webkit-box;
+   103	    -webkit-line-clamp: 2;
+   104	    -webkit-box-orient: vertical;
+   105	    overflow: hidden;
+   106	}
+   107	
+   108	.video-description {
+   109	    color: var(--text-light);
+   110	    font-size: 0.9rem;
+   111	    margin-bottom: 1rem;
+   112	    display: -webkit-box;
+   113	    -webkit-line-clamp: 2;
+   114	    -webkit-box-orient: vertical;
+   115	    overflow: hidden;
+   116	}
+   117	
+   118	.video-meta {
+   119	    display: flex;
+   120	    justify-content: space-between;
+   121	    align-items: center;
+   122	    padding-top: 1rem;
+   123	    border-top: 1px solid var(--border-color);
+   124	}
+   125	
+   126	.video-author {
+   127	    display: flex;
+   128	    align-items: center;
+   129	    gap: 0.5rem;
+   130	    color: var(--text-light);
+   131	    font-size: 0.9rem;
+   132	}
+   133	
+   134	.video-stats {
+   135	    display: flex;
+   136	    gap: 1rem;
+   137	    color: var(--text-light);
+   138	    font-size: 0.9rem;
+   139	}
+   140	
+   141	.video-stats span {
+   142	    display: flex;
+   143	    align-items: center;
+   144	    gap: 0.3rem;
+   145	}
+   146	
+   147	/* ==================== Upload Modal ==================== */
+   148	.upload-form {
+   149	    margin-top: 1.5rem;
+   150	}
+   151	
+   152	.file-upload {
+   153	    border: 3px dashed var(--border-color);
+   154	    border-radius: 12px;
+   155	    padding: 3rem 2rem;
+   156	    text-align: center;
+   157	    transition: var(--transition);
+   158	    cursor: pointer;
+   159	    position: relative;
+   160	}
+   161	
+   162	.file-upload:hover {
+   163	    border-color: var(--primary-color);
+   164	    background: var(--bg-light);
+   165	}
+   166	
+   167	.file-upload i {
+   168	    font-size: 3rem;
+   169	    color: var(--primary-color);
+   170	    margin-bottom: 1rem;
+   171	}
+   172	
+   173	.file-upload p {
+   174	    color: var(--text-light);
+   175	    margin-bottom: 0.5rem;
+   176	}
+   177	
+   178	.file-upload input[type="file"] {
+   179	    position: absolute;
+   180	    top: 0;
+   181	    left: 0;
+   182	    width: 100%;
+   183	    height: 100%;
+   184	    opacity: 0;
+   185	    cursor: pointer;
+   186	}
+   187	
+   188	.form-note {
+   189	    text-align: center;
+   190	    color: var(--text-light);
+   191	    font-size: 0.9rem;
+   192	    margin-top: 1rem;
+   193	}
+   194	
+   195	/* ==================== Video Player Modal ==================== */
+   196	#videoPlayer {
+   197	    width: 100%;
+   198	}
+   199	
+   200	.player-container {
+   201	    background: black;
+   202	    border-radius: 12px;
+   203	    overflow: hidden;
+   204	    margin-bottom: 1.5rem;
+   205	}
+   206	
+   207	.player-container video {
+   208	    width: 100%;
+   209	    display: block;
+   210	}
+   211	
+   212	.player-info {
+   213	    padding: 1rem 0;
+   214	}
+   215	
+   216	.player-info h2 {
+   217	    margin-bottom: 1rem;
+   218	}
+   219	
+   220	.player-meta {
+   221	    display: flex;
+   222	    justify-content: space-between;
+   223	    align-items: center;
+   224	    padding: 1rem 0;
+   225	    border-bottom: 1px solid var(--border-color);
+   226	}
+   227	
+   228	.player-actions {
+   229	    display: flex;
+   230	    gap: 1rem;
+   231	    margin-top: 1rem;
+   232	}
+   233	
+   234	.action-btn {
+   235	    padding: 0.75rem 1.5rem;
+   236	    border: 2px solid var(--border-color);
+   237	    background: white;
+   238	    border-radius: 8px;
+   239	    cursor: pointer;
+   240	    transition: var(--transition);
+   241	    display: flex;
+   242	    align-items: center;
+   243	    gap: 0.5rem;
+   244	}
+   245	
+   246	.action-btn:hover {
+   247	    border-color: var(--primary-color);
+   248	    color: var(--primary-color);
+   249	}
+   250	
+   251	.action-btn.liked {
+   252	    background: var(--primary-color);
+   253	    color: white;
+   254	    border-color: var(--primary-color);
+   255	}
+   256	
+   257	/* ==================== Responsive Design ==================== */
+   258	@media (max-width: 768px) {
+   259	    .videos-grid {
+   260	        grid-template-columns: 1fr;
+   261	    }
+   262	
+   263	    .video-tabs {
+   264	        overflow-x: auto;
+   265	        justify-content: flex-start;
+   266	        padding-bottom: 0.5rem;
+   267	    }
+   268	
+   269	    .video-meta {
+   270	        flex-direction: column;
+   271	        align-items: flex-start;
+   272	        gap: 0.5rem;
+   273	    }
+   274	
+   275	    .player-actions {
+   276	        flex-wrap: wrap;
+   277	    }
+   278	}
