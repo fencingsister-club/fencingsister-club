@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+     2	<html lang="zh-HK">
+     3	<head>
+     4	    <meta charset="UTF-8">
+     5	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     6	    <title>社區論壇 - Fencingsister.club</title>
+     7	    <link rel="stylesheet" href="css/style.css">
+     8	    <link rel="stylesheet" href="css/forum.css">
+     9	    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    10	    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    11	</head>
+    12	<body>
+    13	    <nav class="navbar" id="navbar">
+    14	        <div class="nav-container">
+    15	            <div class="nav-logo">
+    16	                <i class="fas fa-chess-knight"></i>
+    17	                <span>Fencingsister.club</span>
+    18	            </div>
+    19	            <ul class="nav-menu" id="navMenu">
+    20	                <li><a href="index.html">首頁</a></li>
+    21	                <li><a href="shop.html">裝備商店</a></li>
+    22	                <li><a href="videos.html">視頻分享</a></li>
+    23	                <li><a href="coaches.html">教練平台</a></li>
+    24	                <li><a href="clubs.html">俱樂部</a></li>
+    25	                <li><a href="forum.html" class="active">社區論壇</a></li>
+    26	                <li><a href="game.html">擊劍遊戲</a></li>
+    27	            </ul>
+    28	            <div class="nav-actions">
+    29	                <button class="btn-primary" onclick="showModal('newTopicModal')">
+    30	                    <i class="fas fa-plus"></i> 發帖
+    31	                </button>
+    32	            </div>
+    33	            <div class="nav-toggle" id="navToggle"><span></span><span></span><span></span></div>
+    34	        </div>
+    35	    </nav>
+    36	
+    37	    <section class="page-header">
+    38	        <div class="container">
+    39	            <h1>社區論壇</h1>
+    40	            <p>與擊劍愛好者交流心得</p>
+    41	        </div>
+    42	    </section>
+    43	
+    44	    <section class="forum-section">
+    45	        <div class="container">
+    46	            <div class="forum-categories">
+    47	                <button class="category-btn active" onclick="filterPosts('all')">全部</button>
+    48	                <button class="category-btn" onclick="filterPosts('technique')">技術交流</button>
+    49	                <button class="category-btn" onclick="filterPosts('equipment')">裝備討論</button>
+    50	                <button class="category-btn" onclick="filterPosts('competition')">比賽分享</button>
+    51	                <button class="category-btn" onclick="filterPosts('beginner')">新手問答</button>
+    52	            </div>
+    53	            <div class="forum-posts" id="forumPosts"></div>
+    54	        </div>
+    55	    </section>
+    56	
+    57	    <div id="newTopicModal" class="modal">
+    58	        <div class="modal-content">
+    59	            <span class="close" onclick="closeModal('newTopicModal')">&times;</span>
+    60	            <h2>發表新帖</h2>
+    61	            <form onsubmit="handleNewPost(event)">
+    62	                <div class="form-group">
+    63	                    <label>標題</label>
+    64	                    <input type="text" placeholder="輸入帖子標題" required>
+    65	                </div>
+    66	                <div class="form-group">
+    67	                    <label>分類</label>
+    68	                    <select required>
+    69	                        <option value="technique">技術交流</option>
+    70	                        <option value="equipment">裝備討論</option>
+    71	                        <option value="competition">比賽分享</option>
+    72	                        <option value="beginner">新手問答</option>
+    73	                    </select>
+    74	                </div>
+    75	                <div class="form-group">
+    76	                    <label>內容</label>
+    77	                    <textarea rows="8" placeholder="分享你的想法..." required></textarea>
+    78	                </div>
+    79	                <button type="submit" class="btn-primary btn-full">發表</button>
+    80	            </form>
+    81	        </div>
+    82	    </div>
+    83	
+    84	    <footer class="footer">
+    85	        <div class="container">
+    86	            <div class="footer-bottom">
+    87	                <p>&copy; 2026 Fencingsister.club. All rights reserved.</p>
+    88	            </div>
+    89	        </div>
+    90	    </footer>
+    91	
+    92	    <script src="js/main.js"></script>
+    93	    <script src="js/forum.js"></script>
+    94	</body>
+    95	</html>
