@@ -1,0 +1,116 @@
+.forum-section {
+     2	    padding: 3rem 0;
+     3	    background: var(--bg-light);
+     4	    min-height: 70vh;
+     5	}
+     6	
+     7	.forum-categories {
+     8	    display: flex;
+     9	    gap: 1rem;
+    10	    margin-bottom: 2rem;
+    11	    flex-wrap: wrap;
+    12	}
+    13	
+    14	.category-btn {
+    15	    padding: 0.75rem 1.5rem;
+    16	    border: 2px solid var(--border-color);
+    17	    background: white;
+    18	    border-radius: 25px;
+    19	    cursor: pointer;
+    20	    transition: var(--transition);
+    21	    font-weight: 600;
+    22	}
+    23	
+    24	.category-btn:hover {
+    25	    border-color: var(--primary-color);
+    26	    color: var(--primary-color);
+    27	}
+    28	
+    29	.category-btn.active {
+    30	    background: var(--primary-color);
+    31	    color: white;
+    32	    border-color: var(--primary-color);
+    33	}
+    34	
+    35	.forum-posts {
+    36	    display: flex;
+    37	    flex-direction: column;
+    38	    gap: 1.5rem;
+    39	}
+    40	
+    41	.post-card {
+    42	    background: white;
+    43	    border-radius: 12px;
+    44	    padding: 1.5rem;
+    45	    box-shadow: var(--shadow);
+    46	    transition: var(--transition);
+    47	    cursor: pointer;
+    48	}
+    49	
+    50	.post-card:hover {
+    51	    box-shadow: var(--shadow-lg);
+    52	}
+    53	
+    54	.post-header {
+    55	    display: flex;
+    56	    justify-content: space-between;
+    57	    align-items: center;
+    58	    margin-bottom: 1rem;
+    59	}
+    60	
+    61	.post-category {
+    62	    background: var(--bg-light);
+    63	    color: var(--primary-color);
+    64	    padding: 0.3rem 0.8rem;
+    65	    border-radius: 15px;
+    66	    font-size: 0.85rem;
+    67	    font-weight: 600;
+    68	}
+    69	
+    70	.post-title {
+    71	    font-size: 1.3rem;
+    72	    font-weight: 600;
+    73	    margin-bottom: 0.75rem;
+    74	    color: var(--text-dark);
+    75	}
+    76	
+    77	.post-preview {
+    78	    color: var(--text-light);
+    79	    line-height: 1.6;
+    80	    margin-bottom: 1rem;
+    81	}
+    82	
+    83	.post-footer {
+    84	    display: flex;
+    85	    justify-content: space-between;
+    86	    align-items: center;
+    87	    padding-top: 1rem;
+    88	    border-top: 1px solid var(--border-color);
+    89	}
+    90	
+    91	.post-author {
+    92	    display: flex;
+    93	    align-items: center;
+    94	    gap: 0.5rem;
+    95	    color: var(--text-light);
+    96	}
+    97	
+    98	.post-stats {
+    99	    display: flex;
+   100	    gap: 1.5rem;
+   101	    color: var(--text-light);
+   102	}
+   103	
+   104	.post-stats span {
+   105	    display: flex;
+   106	    align-items: center;
+   107	    gap: 0.3rem;
+   108	}
+   109	
+   110	@media (max-width: 768px) {
+   111	    .post-footer {
+   112	        flex-direction: column;
+   113	        align-items: flex-start;
+   114	        gap: 0.5rem;
+   115	    }
+   116	}
