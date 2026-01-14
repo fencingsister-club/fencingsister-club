@@ -1,0 +1,395 @@
+.game-section {
+     2	    padding: 3rem 0;
+     3	    background: var(--bg-light);
+     4	    min-height: 80vh;
+     5	}
+     6	
+     7	.game-container {
+     8	    background: white;
+     9	    border-radius: 20px;
+    10	    padding: 3rem;
+    11	    box-shadow: var(--shadow-lg);
+    12	    margin-bottom: 2rem;
+    13	    position: relative;
+    14	    overflow: hidden;
+    15	}
+    16	
+    17	.game-screen {
+    18	    display: none;
+    19	    text-align: center;
+    20	}
+    21	
+    22	.game-screen.active {
+    23	    display: block;
+    24	}
+    25	
+    26	.game-icon {
+    27	    font-size: 5rem;
+    28	    margin-bottom: 1rem;
+    29	}
+    30	
+    31	.game-description {
+    32	    color: var(--text-light);
+    33	    font-size: 1.1rem;
+    34	    margin: 1.5rem 0;
+    35	    line-height: 1.8;
+    36	}
+    37	
+    38	.difficulty-selector {
+    39	    margin: 2rem 0;
+    40	}
+    41	
+    42	.difficulty-selector h3 {
+    43	    margin-bottom: 1rem;
+    44	}
+    45	
+    46	.difficulty-buttons {
+    47	    display: flex;
+    48	    gap: 1rem;
+    49	    justify-content: center;
+    50	}
+    51	
+    52	.diff-btn {
+    53	    padding: 1rem 1.5rem;
+    54	    border: 3px solid var(--border-color);
+    55	    background: white;
+    56	    border-radius: 12px;
+    57	    cursor: pointer;
+    58	    transition: var(--transition);
+    59	    display: flex;
+    60	    flex-direction: column;
+    61	    align-items: center;
+    62	    gap: 0.5rem;
+    63	}
+    64	
+    65	.diff-btn i {
+    66	    color: var(--accent-color);
+    67	}
+    68	
+    69	.diff-btn:hover {
+    70	    border-color: var(--primary-color);
+    71	    transform: translateY(-3px);
+    72	}
+    73	
+    74	.diff-btn.active {
+    75	    border-color: var(--primary-color);
+    76	    background: var(--primary-color);
+    77	    color: white;
+    78	}
+    79	
+    80	.diff-btn.active i {
+    81	    color: white;
+    82	}
+    83	
+    84	.btn-game-start {
+    85	    padding: 1rem 3rem;
+    86	    font-size: 1.3rem;
+    87	    background: var(--primary-color);
+    88	    color: white;
+    89	    border: none;
+    90	    border-radius: 50px;
+    91	    cursor: pointer;
+    92	    transition: var(--transition);
+    93	    font-weight: 700;
+    94	}
+    95	
+    96	.btn-game-start:hover {
+    97	    background: #1d4ed8;
+    98	    transform: scale(1.05);
+    99	}
+   100	
+   101	.game-hud {
+   102	    display: flex;
+   103	    justify-content: space-around;
+   104	    padding: 1.5rem;
+   105	    background: var(--bg-light);
+   106	    border-radius: 12px;
+   107	    margin-bottom: 2rem;
+   108	}
+   109	
+   110	.hud-item {
+   111	    display: flex;
+   112	    align-items: center;
+   113	    gap: 0.5rem;
+   114	    font-size: 1.1rem;
+   115	}
+   116	
+   117	.hud-item i {
+   118	    color: var(--primary-color);
+   119	    font-size: 1.5rem;
+   120	}
+   121	
+   122	.hud-item strong {
+   123	    color: var(--primary-color);
+   124	    font-size: 1.5rem;
+   125	}
+   126	
+   127	.game-arena {
+   128	    position: relative;
+   129	    height: 400px;
+   130	    background: linear-gradient(to bottom, #f0f9ff 0%, #e0f2fe 100%);
+   131	    border-radius: 12px;
+   132	    border: 3px solid var(--primary-color);
+   133	    margin-bottom: 1rem;
+   134	    overflow: hidden;
+   135	}
+   136	
+   137	.player-fencer, .opponent-fencer {
+   138	    position: absolute;
+   139	    bottom: 20px;
+   140	}
+   141	
+   142	.player-fencer {
+   143	    left: 50px;
+   144	}
+   145	
+   146	.opponent-fencer {
+   147	    right: 50px;
+   148	}
+   149	
+   150	.fencer {
+   151	    font-size: 4rem;
+   152	    transition: transform 0.3s ease;
+   153	}
+   154	
+   155	.fencer.opponent {
+   156	    transform: scaleX(-1);
+   157	}
+   158	
+   159	.fencer.attack {
+   160	    animation: attackAnimation 0.3s ease;
+   161	}
+   162	
+   163	@keyframes attackAnimation {
+   164	    0%, 100% { transform: translateX(0); }
+   165	    50% { transform: translateX(20px); }
+   166	}
+   167	
+   168	.player-label, .opponent-label {
+   169	    text-align: center;
+   170	    font-weight: 600;
+   171	    color: var(--text-dark);
+   172	    margin-top: 0.5rem;
+   173	}
+   174	
+   175	.target {
+   176	    position: absolute;
+   177	    width: 60px;
+   178	    height: 60px;
+   179	    background: var(--danger-color);
+   180	    border-radius: 50%;
+   181	    display: flex;
+   182	    align-items: center;
+   183	    justify-content: center;
+   184	    font-size: 2rem;
+   185	    cursor: pointer;
+   186	    animation: targetAppear 0.3s ease, targetPulse 1s ease infinite;
+   187	    box-shadow: 0 0 20px rgba(239, 68, 68, 0.5);
+   188	}
+   189	
+   190	@keyframes targetAppear {
+   191	    from {
+   192	        transform: scale(0);
+   193	        opacity: 0;
+   194	    }
+   195	    to {
+   196	        transform: scale(1);
+   197	        opacity: 1;
+   198	    }
+   199	}
+   200	
+   201	@keyframes targetPulse {
+   202	    0%, 100% { transform: scale(1); }
+   203	    50% { transform: scale(1.1); }
+   204	}
+   205	
+   206	.target.hit {
+   207	    animation: hitEffect 0.3s ease forwards;
+   208	}
+   209	
+   210	@keyframes hitEffect {
+   211	    0% {
+   212	        transform: scale(1);
+   213	        opacity: 1;
+   214	    }
+   215	    50% {
+   216	        transform: scale(1.5);
+   217	        background: var(--success-color);
+   218	    }
+   219	    100% {
+   220	        transform: scale(0);
+   221	        opacity: 0;
+   222	    }
+   223	}
+   224	
+   225	.game-instruction {
+   226	    color: var(--text-light);
+   227	    font-size: 1.1rem;
+   228	    padding: 1rem;
+   229	}
+   230	
+   231	.final-stats {
+   232	    display: grid;
+   233	    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+   234	    gap: 1.5rem;
+   235	    margin: 2rem 0;
+   236	}
+   237	
+   238	.stat-box {
+   239	    background: var(--bg-light);
+   240	    padding: 1.5rem;
+   241	    border-radius: 12px;
+   242	}
+   243	
+   244	.stat-value {
+   245	    font-size: 2.5rem;
+   246	    font-weight: 700;
+   247	    color: var(--primary-color);
+   248	    margin-bottom: 0.5rem;
+   249	}
+   250	
+   251	.stat-label {
+   252	    color: var(--text-light);
+   253	    font-size: 0.9rem;
+   254	}
+   255	
+   256	.performance-badge {
+   257	    font-size: 1.5rem;
+   258	    padding: 1rem 2rem;
+   259	    border-radius: 50px;
+   260	    margin: 2rem auto;
+   261	    display: inline-block;
+   262	    font-weight: 700;
+   263	}
+   264	
+   265	.performance-badge.master {
+   266	    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+   267	    color: white;
+   268	}
+   269	
+   270	.performance-badge.expert {
+   271	    background: linear-gradient(135deg, #3b82f6, #2563eb);
+   272	    color: white;
+   273	}
+   274	
+   275	.performance-badge.intermediate {
+   276	    background: linear-gradient(135deg, #10b981, #059669);
+   277	    color: white;
+   278	}
+   279	
+   280	.performance-badge.beginner {
+   281	    background: linear-gradient(135deg, #6b7280, #4b5563);
+   282	    color: white;
+   283	}
+   284	
+   285	.game-buttons {
+   286	    display: flex;
+   287	    gap: 1rem;
+   288	    justify-content: center;
+   289	    margin-top: 2rem;
+   290	}
+   291	
+   292	.btn-game {
+   293	    padding: 0.75rem 2rem;
+   294	    font-size: 1.1rem;
+   295	    border-radius: 8px;
+   296	}
+   297	
+   298	.leaderboard {
+   299	    background: white;
+   300	    border-radius: 20px;
+   301	    padding: 2rem;
+   302	    box-shadow: var(--shadow-lg);
+   303	}
+   304	
+   305	.leaderboard h3 {
+   306	    margin-bottom: 1.5rem;
+   307	    text-align: center;
+   308	    font-size: 1.5rem;
+   309	}
+   310	
+   311	.leaderboard-list {
+   312	    display: flex;
+   313	    flex-direction: column;
+   314	    gap: 1rem;
+   315	}
+   316	
+   317	.leaderboard-item {
+   318	    display: flex;
+   319	    align-items: center;
+   320	    justify-content: space-between;
+   321	    padding: 1rem 1.5rem;
+   322	    background: var(--bg-light);
+   323	    border-radius: 12px;
+   324	    transition: var(--transition);
+   325	}
+   326	
+   327	.leaderboard-item:hover {
+   328	    transform: translateX(5px);
+   329	    box-shadow: var(--shadow);
+   330	}
+   331	
+   332	.rank {
+   333	    width: 40px;
+   334	    height: 40px;
+   335	    border-radius: 50%;
+   336	    display: flex;
+   337	    align-items: center;
+   338	    justify-content: center;
+   339	    font-weight: 700;
+   340	    background: var(--border-color);
+   341	}
+   342	
+   343	.rank.gold {
+   344	    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+   345	    color: white;
+   346	}
+   347	
+   348	.rank.silver {
+   349	    background: linear-gradient(135deg, #e5e7eb, #9ca3af);
+   350	    color: white;
+   351	}
+   352	
+   353	.rank.bronze {
+   354	    background: linear-gradient(135deg, #d97706, #b45309);
+   355	    color: white;
+   356	}
+   357	
+   358	.player-name {
+   359	    flex: 1;
+   360	    margin-left: 1rem;
+   361	    font-weight: 600;
+   362	}
+   363	
+   364	.player-score {
+   365	    font-weight: 700;
+   366	    color: var(--primary-color);
+   367	    font-size: 1.2rem;
+   368	}
+   369	
+   370	@media (max-width: 768px) {
+   371	    .game-container {
+   372	        padding: 1.5rem;
+   373	    }
+   374	
+   375	    .game-hud {
+   376	        flex-direction: column;
+   377	        gap: 1rem;
+   378	    }
+   379	
+   380	    .game-arena {
+   381	        height: 300px;
+   382	    }
+   383	
+   384	    .difficulty-buttons {
+   385	        flex-direction: column;
+   386	    }
+   387	
+   388	    .final-stats {
+   389	        grid-template-columns: repeat(2, 1fr);
+   390	    }
+   391	
+   392	    .game-buttons {
+   393	        flex-direction: column;
+   394	    }
+   395	}
