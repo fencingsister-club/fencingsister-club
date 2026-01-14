@@ -1,0 +1,106 @@
+.coaches-section {
+     2	    padding: 3rem 0;
+     3	    background: var(--bg-light);
+     4	    min-height: 70vh;
+     5	}
+     6	
+     7	.coaches-toolbar {
+     8	    display: flex;
+     9	    gap: 1rem;
+    10	    margin-bottom: 2rem;
+    11	}
+    12	
+    13	.coaches-toolbar .search-box {
+    14	    flex: 1;
+    15	}
+    16	
+    17	.coaches-toolbar select {
+    18	    padding: 0.75rem 1rem;
+    19	    border: 2px solid var(--border-color);
+    20	    border-radius: 8px;
+    21	    background: white;
+    22	}
+    23	
+    24	.coaches-grid {
+    25	    display: grid;
+    26	    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    27	    gap: 2rem;
+    28	}
+    29	
+    30	.coach-card {
+    31	    background: white;
+    32	    border-radius: 12px;
+    33	    padding: 2rem;
+    34	    box-shadow: var(--shadow);
+    35	    transition: var(--transition);
+    36	    text-align: center;
+    37	    cursor: pointer;
+    38	}
+    39	
+    40	.coach-card:hover {
+    41	    transform: translateY(-5px);
+    42	    box-shadow: var(--shadow-lg);
+    43	}
+    44	
+    45	.coach-avatar {
+    46	    width: 120px;
+    47	    height: 120px;
+    48	    margin: 0 auto 1.5rem;
+    49	    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    50	    border-radius: 50%;
+    51	    display: flex;
+    52	    align-items: center;
+    53	    justify-content: center;
+    54	    font-size: 3rem;
+    55	    color: white;
+    56	}
+    57	
+    58	.coach-name {
+    59	    font-size: 1.5rem;
+    60	    font-weight: 600;
+    61	    margin-bottom: 0.5rem;
+    62	}
+    63	
+    64	.coach-specialty {
+    65	    color: var(--primary-color);
+    66	    font-weight: 600;
+    67	    margin-bottom: 1rem;
+    68	}
+    69	
+    70	.coach-rating {
+    71	    color: var(--accent-color);
+    72	    margin-bottom: 1rem;
+    73	    font-size: 1.1rem;
+    74	}
+    75	
+    76	.coach-experience {
+    77	    color: var(--text-light);
+    78	    margin-bottom: 1rem;
+    79	}
+    80	
+    81	.coach-price {
+    82	    font-size: 1.8rem;
+    83	    font-weight: 700;
+    84	    color: var(--primary-color);
+    85	    margin-bottom: 1rem;
+    86	}
+    87	
+    88	.coach-badge {
+    89	    display: inline-block;
+    90	    background: var(--success-color);
+    91	    color: white;
+    92	    padding: 0.3rem 0.8rem;
+    93	    border-radius: 15px;
+    94	    font-size: 0.85rem;
+    95	    margin-bottom: 1rem;
+    96	}
+    97	
+    98	@media (max-width: 768px) {
+    99	    .coaches-toolbar {
+   100	        flex-direction: column;
+   101	    }
+   102	    
+   103	    .coaches-grid {
+   104	        grid-template-columns: 1fr;
+   105	    }
+   106	}
