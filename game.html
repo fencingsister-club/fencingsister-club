@@ -1,0 +1,180 @@
+	<!DOCTYPE html>
+     2	<html lang="zh-HK">
+     3	<head>
+     4	    <meta charset="UTF-8">
+     5	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     6	    <title>擊劍遊戲 - Fencingsister.club</title>
+     7	    <link rel="stylesheet" href="css/style.css">
+     8	    <link rel="stylesheet" href="css/game.css">
+     9	    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    10	    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    11	</head>
+    12	<body>
+    13	    <nav class="navbar" id="navbar">
+    14	        <div class="nav-container">
+    15	            <div class="nav-logo">
+    16	                <i class="fas fa-chess-knight"></i>
+    17	                <span>Fencingsister.club</span>
+    18	            </div>
+    19	            <ul class="nav-menu" id="navMenu">
+    20	                <li><a href="index.html">首頁</a></li>
+    21	                <li><a href="shop.html">裝備商店</a></li>
+    22	                <li><a href="videos.html">視頻分享</a></li>
+    23	                <li><a href="coaches.html">教練平台</a></li>
+    24	                <li><a href="clubs.html">俱樂部</a></li>
+    25	                <li><a href="forum.html">社區論壇</a></li>
+    26	                <li><a href="game.html" class="active">擊劍遊戲</a></li>
+    27	            </ul>
+    28	            <div class="nav-toggle" id="navToggle"><span></span><span></span><span></span></div>
+    29	        </div>
+    30	    </nav>
+    31	
+    32	    <section class="page-header">
+    33	        <div class="container">
+    34	            <h1>擊劍反應遊戲</h1>
+    35	            <p>測試你的反應速度和節奏感</p>
+    36	        </div>
+    37	    </section>
+    38	
+    39	    <section class="game-section">
+    40	        <div class="container">
+    41	            <div class="game-container">
+    42	                <!-- Game Start Screen -->
+    43	                <div id="startScreen" class="game-screen active">
+    44	                    <div class="game-icon">🤺</div>
+    45	                    <h2>擊劍反應挑戰</h2>
+    46	                    <p class="game-description">
+    47	                        當目標出現時快速點擊擊中！<br>
+    48	                        測試你的反應速度，成為最快的擊劍手！
+    49	                    </p>
+    50	                    <div class="difficulty-selector">
+    51	                        <h3>選擇難度</h3>
+    52	                        <div class="difficulty-buttons">
+    53	                            <button class="diff-btn" data-level="easy">
+    54	                                <i class="fas fa-star"></i>
+    55	                                <span>簡單</span>
+    56	                            </button>
+    57	                            <button class="diff-btn active" data-level="medium">
+    58	                                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+    59	                                <span>中等</span>
+    60	                            </button>
+    61	                            <button class="diff-btn" data-level="hard">
+    62	                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+    63	                                <span>困難</span>
+    64	                            </button>
+    65	                        </div>
+    66	                    </div>
+    67	                    <button class="btn-game-start" onclick="startGame()">開始遊戲</button>
+    68	                </div>
+    69	
+    70	                <!-- Game Play Screen -->
+    71	                <div id="playScreen" class="game-screen">
+    72	                    <div class="game-hud">
+    73	                        <div class="hud-item">
+    74	                            <i class="fas fa-bullseye"></i>
+    75	                            <span>得分: <strong id="scoreDisplay">0</strong></span>
+    76	                        </div>
+    77	                        <div class="hud-item">
+    78	                            <i class="fas fa-clock"></i>
+    79	                            <span>時間: <strong id="timerDisplay">30</strong>s</span>
+    80	                        </div>
+    81	                        <div class="hud-item">
+    82	                            <i class="fas fa-bolt"></i>
+    83	                            <span>連擊: <strong id="comboDisplay">0</strong></span>
+    84	                        </div>
+    85	                    </div>
+    86	                    <div class="game-arena" id="gameArena">
+    87	                        <div class="player-fencer">
+    88	                            <div class="fencer">🤺</div>
+    89	                            <div class="player-label">你</div>
+    90	                        </div>
+    91	                        <div class="opponent-fencer">
+    92	                            <div class="fencer opponent">🤺</div>
+    93	                            <div class="opponent-label">對手</div>
+    94	                        </div>
+    95	                    </div>
+    96	                    <div class="game-instruction">
+    97	                        <p>點擊出現的目標！</p>
+    98	                    </div>
+    99	                </div>
+   100	
+   101	                <!-- Game End Screen -->
+   102	                <div id="endScreen" class="game-screen">
+   103	                    <div class="game-icon">🏆</div>
+   104	                    <h2>遊戲結束！</h2>
+   105	                    <div class="final-stats">
+   106	                        <div class="stat-box">
+   107	                            <div class="stat-value" id="finalScore">0</div>
+   108	                            <div class="stat-label">最終得分</div>
+   109	                        </div>
+   110	                        <div class="stat-box">
+   111	                            <div class="stat-value" id="finalHits">0</div>
+   112	                            <div class="stat-label">擊中次數</div>
+   113	                        </div>
+   114	                        <div class="stat-box">
+   115	                            <div class="stat-value" id="finalAccuracy">0%</div>
+   116	                            <div class="stat-label">準確率</div>
+   117	                        </div>
+   118	                        <div class="stat-box">
+   119	                            <div class="stat-value" id="avgReaction">0ms</div>
+   120	                            <div class="stat-label">平均反應</div>
+   121	                        </div>
+   122	                    </div>
+   123	                    <div class="performance-badge" id="performanceBadge"></div>
+   124	                    <div class="game-buttons">
+   125	                        <button class="btn-secondary btn-game" onclick="backToMenu()">
+   126	                            <i class="fas fa-home"></i> 返回菜單
+   127	                        </button>
+   128	                        <button class="btn-primary btn-game" onclick="restartGame()">
+   129	                            <i class="fas fa-redo"></i> 再玩一次
+   130	                        </button>
+   131	                    </div>
+   132	                </div>
+   133	            </div>
+   134	
+   135	            <!-- Leaderboard -->
+   136	            <div class="leaderboard">
+   137	                <h3><i class="fas fa-trophy"></i> 排行榜</h3>
+   138	                <div class="leaderboard-list">
+   139	                    <div class="leaderboard-item">
+   140	                        <span class="rank gold">1</span>
+   141	                        <span class="player-name">Fencingsister</span>
+   142	                        <span class="player-score">2850</span>
+   143	                    </div>
+   144	                    <div class="leaderboard-item">
+   145	                        <span class="rank silver">2</span>
+   146	                        <span class="player-name">快劍手</span>
+   147	                        <span class="player-score">2640</span>
+   148	                    </div>
+   149	                    <div class="leaderboard-item">
+   150	                        <span class="rank bronze">3</span>
+   151	                        <span class="player-name">擊劍達人</span>
+   152	                        <span class="player-score">2430</span>
+   153	                    </div>
+   154	                    <div class="leaderboard-item">
+   155	                        <span class="rank">4</span>
+   156	                        <span class="player-name">閃電劍客</span>
+   157	                        <span class="player-score">2180</span>
+   158	                    </div>
+   159	                    <div class="leaderboard-item">
+   160	                        <span class="rank">5</span>
+   161	                        <span class="player-name">劍聖</span>
+   162	                        <span class="player-score">1950</span>
+   163	                    </div>
+   164	                </div>
+   165	            </div>
+   166	        </div>
+   167	    </section>
+   168	
+   169	    <footer class="footer">
+   170	        <div class="container">
+   171	            <div class="footer-bottom">
+   172	                <p>&copy; 2026 Fencingsister.club. All rights reserved.</p>
+   173	            </div>
+   174	        </div>
+   175	    </footer>
+   176	
+   177	    <script src="js/main.js"></script>
+   178	    <script src="js/game.js"></script>
+   179	</body>
+   180	</html>
