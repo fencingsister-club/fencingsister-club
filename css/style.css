@@ -1,0 +1,716 @@
+/* ==================== Global Styles ==================== */
+     2	* {
+     3	    margin: 0;
+     4	    padding: 0;
+     5	    box-sizing: border-box;
+     6	}
+     7	
+     8	:root {
+     9	    --primary-color: #2563eb;
+    10	    --secondary-color: #7c3aed;
+    11	    --accent-color: #f59e0b;
+    12	    --text-dark: #1f2937;
+    13	    --text-light: #6b7280;
+    14	    --bg-light: #f9fafb;
+    15	    --bg-white: #ffffff;
+    16	    --border-color: #e5e7eb;
+    17	    --success-color: #10b981;
+    18	    --danger-color: #ef4444;
+    19	    --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    20	    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+    21	    --transition: all 0.3s ease;
+    22	}
+    23	
+    24	body {
+    25	    font-family: 'Noto Sans HK', 'Montserrat', sans-serif;
+    26	    line-height: 1.6;
+    27	    color: var(--text-dark);
+    28	    background: var(--bg-white);
+    29	    overflow-x: hidden;
+    30	}
+    31	
+    32	.container {
+    33	    max-width: 1200px;
+    34	    margin: 0 auto;
+    35	    padding: 0 20px;
+    36	}
+    37	
+    38	/* ==================== Navigation ==================== */
+    39	.navbar {
+    40	    position: fixed;
+    41	    top: 0;
+    42	    width: 100%;
+    43	    background: var(--bg-white);
+    44	    box-shadow: var(--shadow);
+    45	    z-index: 1000;
+    46	    transition: var(--transition);
+    47	}
+    48	
+    49	.navbar.scrolled {
+    50	    box-shadow: var(--shadow-lg);
+    51	}
+    52	
+    53	.nav-container {
+    54	    max-width: 1200px;
+    55	    margin: 0 auto;
+    56	    padding: 1rem 20px;
+    57	    display: flex;
+    58	    justify-content: space-between;
+    59	    align-items: center;
+    60	}
+    61	
+    62	.nav-logo {
+    63	    display: flex;
+    64	    align-items: center;
+    65	    gap: 10px;
+    66	    font-size: 1.5rem;
+    67	    font-weight: 700;
+    68	    color: var(--primary-color);
+    69	}
+    70	
+    71	.nav-logo i {
+    72	    font-size: 2rem;
+    73	}
+    74	
+    75	.nav-menu {
+    76	    display: flex;
+    77	    list-style: none;
+    78	    gap: 2rem;
+    79	}
+    80	
+    81	.nav-menu a {
+    82	    text-decoration: none;
+    83	    color: var(--text-dark);
+    84	    font-weight: 500;
+    85	    transition: var(--transition);
+    86	    position: relative;
+    87	}
+    88	
+    89	.nav-menu a::after {
+    90	    content: '';
+    91	    position: absolute;
+    92	    bottom: -5px;
+    93	    left: 0;
+    94	    width: 0;
+    95	    height: 2px;
+    96	    background: var(--primary-color);
+    97	    transition: var(--transition);
+    98	}
+    99	
+   100	.nav-menu a:hover::after,
+   101	.nav-menu a.active::after {
+   102	    width: 100%;
+   103	}
+   104	
+   105	.nav-menu a:hover,
+   106	.nav-menu a.active {
+   107	    color: var(--primary-color);
+   108	}
+   109	
+   110	.nav-actions {
+   111	    display: flex;
+   112	    gap: 1rem;
+   113	}
+   114	
+   115	.nav-toggle {
+   116	    display: none;
+   117	    flex-direction: column;
+   118	    gap: 5px;
+   119	    cursor: pointer;
+   120	}
+   121	
+   122	.nav-toggle span {
+   123	    width: 25px;
+   124	    height: 3px;
+   125	    background: var(--text-dark);
+   126	    transition: var(--transition);
+   127	}
+   128	
+   129	/* ==================== Buttons ==================== */
+   130	.btn-primary, .btn-secondary, .btn-hero-primary, .btn-hero-secondary, .btn-cta {
+   131	    padding: 0.75rem 1.5rem;
+   132	    border: none;
+   133	    border-radius: 8px;
+   134	    font-weight: 600;
+   135	    cursor: pointer;
+   136	    transition: var(--transition);
+   137	    font-size: 1rem;
+   138	}
+   139	
+   140	.btn-primary {
+   141	    background: var(--primary-color);
+   142	    color: white;
+   143	}
+   144	
+   145	.btn-primary:hover {
+   146	    background: #1d4ed8;
+   147	    transform: translateY(-2px);
+   148	    box-shadow: var(--shadow-lg);
+   149	}
+   150	
+   151	.btn-secondary {
+   152	    background: transparent;
+   153	    color: var(--primary-color);
+   154	    border: 2px solid var(--primary-color);
+   155	}
+   156	
+   157	.btn-secondary:hover {
+   158	    background: var(--primary-color);
+   159	    color: white;
+   160	}
+   161	
+   162	.btn-hero-primary {
+   163	    background: var(--primary-color);
+   164	    color: white;
+   165	    padding: 1rem 2rem;
+   166	    font-size: 1.1rem;
+   167	}
+   168	
+   169	.btn-hero-primary:hover {
+   170	    background: #1d4ed8;
+   171	    transform: scale(1.05);
+   172	}
+   173	
+   174	.btn-hero-secondary {
+   175	    background: transparent;
+   176	    color: white;
+   177	    border: 2px solid white;
+   178	    padding: 1rem 2rem;
+   179	    font-size: 1.1rem;
+   180	}
+   181	
+   182	.btn-hero-secondary:hover {
+   183	    background: white;
+   184	    color: var(--primary-color);
+   185	}
+   186	
+   187	.btn-cta {
+   188	    background: white;
+   189	    color: var(--primary-color);
+   190	    padding: 1rem 2.5rem;
+   191	    font-size: 1.2rem;
+   192	}
+   193	
+   194	.btn-cta:hover {
+   195	    transform: scale(1.05);
+   196	    box-shadow: var(--shadow-lg);
+   197	}
+   198	
+   199	.btn-full {
+   200	    width: 100%;
+   201	}
+   202	
+   203	/* ==================== Hero Section ==================== */
+   204	.hero {
+   205	    position: relative;
+   206	    height: 100vh;
+   207	    display: flex;
+   208	    align-items: center;
+   209	    justify-content: center;
+   210	    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+   211	    color: white;
+   212	    text-align: center;
+   213	    margin-top: 70px;
+   214	}
+   215	
+   216	.hero-overlay {
+   217	    position: absolute;
+   218	    top: 0;
+   219	    left: 0;
+   220	    width: 100%;
+   221	    height: 100%;
+   222	    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><path d="M0,300 Q300,100 600,300 T1200,300 L1200,600 L0,600 Z" fill="rgba(255,255,255,0.05)"/></svg>');
+   223	    background-size: cover;
+   224	    opacity: 0.3;
+   225	}
+   226	
+   227	.hero-content {
+   228	    position: relative;
+   229	    z-index: 1;
+   230	    max-width: 900px;
+   231	    padding: 0 20px;
+   232	}
+   233	
+   234	.hero-title {
+   235	    font-size: 3.5rem;
+   236	    font-weight: 700;
+   237	    margin-bottom: 1rem;
+   238	    animation: fadeInUp 1s ease;
+   239	}
+   240	
+   241	.hero-subtitle {
+   242	    font-size: 1.8rem;
+   243	    margin-bottom: 1rem;
+   244	    animation: fadeInUp 1s ease 0.2s backwards;
+   245	}
+   246	
+   247	.hero-description {
+   248	    font-size: 1.2rem;
+   249	    margin-bottom: 2rem;
+   250	    opacity: 0.9;
+   251	    animation: fadeInUp 1s ease 0.4s backwards;
+   252	}
+   253	
+   254	.hero-buttons {
+   255	    display: flex;
+   256	    gap: 1rem;
+   257	    justify-content: center;
+   258	    margin-bottom: 3rem;
+   259	    animation: fadeInUp 1s ease 0.6s backwards;
+   260	}
+   261	
+   262	.hero-stats {
+   263	    display: flex;
+   264	    gap: 3rem;
+   265	    justify-content: center;
+   266	    animation: fadeInUp 1s ease 0.8s backwards;
+   267	}
+   268	
+   269	.stat-item {
+   270	    text-align: center;
+   271	}
+   272	
+   273	.stat-number {
+   274	    font-size: 2.5rem;
+   275	    font-weight: 700;
+   276	    margin-bottom: 0.5rem;
+   277	}
+   278	
+   279	.stat-label {
+   280	    font-size: 1rem;
+   281	    opacity: 0.9;
+   282	}
+   283	
+   284	@keyframes fadeInUp {
+   285	    from {
+   286	        opacity: 0;
+   287	        transform: translateY(30px);
+   288	    }
+   289	    to {
+   290	        opacity: 1;
+   291	        transform: translateY(0);
+   292	    }
+   293	}
+   294	
+   295	/* ==================== Features Section ==================== */
+   296	.features {
+   297	    padding: 5rem 0;
+   298	    background: var(--bg-light);
+   299	}
+   300	
+   301	.section-title {
+   302	    text-align: center;
+   303	    font-size: 2.5rem;
+   304	    font-weight: 700;
+   305	    margin-bottom: 1rem;
+   306	    color: var(--text-dark);
+   307	}
+   308	
+   309	.section-subtitle {
+   310	    text-align: center;
+   311	    font-size: 1.2rem;
+   312	    color: var(--text-light);
+   313	    margin-bottom: 3rem;
+   314	}
+   315	
+   316	.features-grid {
+   317	    display: grid;
+   318	    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+   319	    gap: 2rem;
+   320	}
+   321	
+   322	.feature-card {
+   323	    background: var(--bg-white);
+   324	    padding: 2rem;
+   325	    border-radius: 12px;
+   326	    box-shadow: var(--shadow);
+   327	    transition: var(--transition);
+   328	    text-align: center;
+   329	}
+   330	
+   331	.feature-card:hover {
+   332	    transform: translateY(-10px);
+   333	    box-shadow: var(--shadow-lg);
+   334	}
+   335	
+   336	.feature-icon {
+   337	    width: 80px;
+   338	    height: 80px;
+   339	    margin: 0 auto 1.5rem;
+   340	    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+   341	    border-radius: 50%;
+   342	    display: flex;
+   343	    align-items: center;
+   344	    justify-content: center;
+   345	    font-size: 2rem;
+   346	    color: white;
+   347	}
+   348	
+   349	.feature-card h3 {
+   350	    font-size: 1.5rem;
+   351	    margin-bottom: 1rem;
+   352	    color: var(--text-dark);
+   353	}
+   354	
+   355	.feature-card p {
+   356	    color: var(--text-light);
+   357	    margin-bottom: 1.5rem;
+   358	}
+   359	
+   360	.feature-link {
+   361	    color: var(--primary-color);
+   362	    text-decoration: none;
+   363	    font-weight: 600;
+   364	    transition: var(--transition);
+   365	}
+   366	
+   367	.feature-link:hover {
+   368	    gap: 10px;
+   369	}
+   370	
+   371	.feature-link i {
+   372	    margin-left: 5px;
+   373	    transition: var(--transition);
+   374	}
+   375	
+   376	.feature-link:hover i {
+   377	    transform: translateX(5px);
+   378	}
+   379	
+   380	/* ==================== How It Works ==================== */
+   381	.how-it-works {
+   382	    padding: 5rem 0;
+   383	    background: var(--bg-white);
+   384	}
+   385	
+   386	.steps {
+   387	    display: flex;
+   388	    justify-content: space-between;
+   389	    align-items: center;
+   390	    gap: 2rem;
+   391	    margin-top: 3rem;
+   392	}
+   393	
+   394	.step {
+   395	    flex: 1;
+   396	    text-align: center;
+   397	    position: relative;
+   398	}
+   399	
+   400	.step-number {
+   401	    position: absolute;
+   402	    top: -15px;
+   403	    left: 50%;
+   404	    transform: translateX(-50%);
+   405	    width: 40px;
+   406	    height: 40px;
+   407	    background: var(--primary-color);
+   408	    color: white;
+   409	    border-radius: 50%;
+   410	    display: flex;
+   411	    align-items: center;
+   412	    justify-content: center;
+   413	    font-weight: 700;
+   414	    font-size: 1.2rem;
+   415	}
+   416	
+   417	.step-icon {
+   418	    width: 100px;
+   419	    height: 100px;
+   420	    margin: 0 auto 1.5rem;
+   421	    background: var(--bg-light);
+   422	    border-radius: 50%;
+   423	    display: flex;
+   424	    align-items: center;
+   425	    justify-content: center;
+   426	    font-size: 2.5rem;
+   427	    color: var(--primary-color);
+   428	}
+   429	
+   430	.step h3 {
+   431	    font-size: 1.3rem;
+   432	    margin-bottom: 0.5rem;
+   433	}
+   434	
+   435	.step p {
+   436	    color: var(--text-light);
+   437	}
+   438	
+   439	.step-arrow {
+   440	    font-size: 2rem;
+   441	    color: var(--primary-color);
+   442	}
+   443	
+   444	/* ==================== CTA Section ==================== */
+   445	.cta {
+   446	    padding: 5rem 0;
+   447	    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+   448	    color: white;
+   449	    text-align: center;
+   450	}
+   451	
+   452	.cta h2 {
+   453	    font-size: 2.5rem;
+   454	    margin-bottom: 1rem;
+   455	}
+   456	
+   457	.cta p {
+   458	    font-size: 1.2rem;
+   459	    margin-bottom: 2rem;
+   460	    opacity: 0.9;
+   461	}
+   462	
+   463	/* ==================== Footer ==================== */
+   464	.footer {
+   465	    background: var(--text-dark);
+   466	    color: white;
+   467	    padding: 3rem 0 1rem;
+   468	}
+   469	
+   470	.footer-content {
+   471	    display: grid;
+   472	    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+   473	    gap: 2rem;
+   474	    margin-bottom: 2rem;
+   475	}
+   476	
+   477	.footer-section h3 {
+   478	    margin-bottom: 1rem;
+   479	    font-size: 1.5rem;
+   480	}
+   481	
+   482	.footer-section h4 {
+   483	    margin-bottom: 1rem;
+   484	    font-size: 1.2rem;
+   485	}
+   486	
+   487	.footer-section p {
+   488	    color: rgba(255, 255, 255, 0.7);
+   489	    margin-bottom: 1rem;
+   490	}
+   491	
+   492	.footer-section ul {
+   493	    list-style: none;
+   494	}
+   495	
+   496	.footer-section ul li {
+   497	    margin-bottom: 0.5rem;
+   498	}
+   499	
+   500	.footer-section ul li a {
+   501	    color: rgba(255, 255, 255, 0.7);
+   502	    text-decoration: none;
+   503	    transition: var(--transition);
+   504	}
+   505	
+   506	.footer-section ul li a:hover {
+   507	    color: white;
+   508	}
+   509	
+   510	.social-links {
+   511	    display: flex;
+   512	    gap: 1rem;
+   513	    margin-top: 1rem;
+   514	}
+   515	
+   516	.social-links a {
+   517	    width: 40px;
+   518	    height: 40px;
+   519	    background: rgba(255, 255, 255, 0.1);
+   520	    border-radius: 50%;
+   521	    display: flex;
+   522	    align-items: center;
+   523	    justify-content: center;
+   524	    color: white;
+   525	    font-size: 1.2rem;
+   526	    transition: var(--transition);
+   527	}
+   528	
+   529	.social-links a:hover {
+   530	    background: var(--primary-color);
+   531	    transform: translateY(-3px);
+   532	}
+   533	
+   534	.footer-bottom {
+   535	    text-align: center;
+   536	    padding-top: 2rem;
+   537	    border-top: 1px solid rgba(255, 255, 255, 0.1);
+   538	    color: rgba(255, 255, 255, 0.7);
+   539	}
+   540	
+   541	/* ==================== Modal ==================== */
+   542	.modal {
+   543	    display: none;
+   544	    position: fixed;
+   545	    z-index: 2000;
+   546	    left: 0;
+   547	    top: 0;
+   548	    width: 100%;
+   549	    height: 100%;
+   550	    background: rgba(0, 0, 0, 0.7);
+   551	    animation: fadeIn 0.3s ease;
+   552	}
+   553	
+   554	.modal-content {
+   555	    position: relative;
+   556	    background: white;
+   557	    margin: 5% auto;
+   558	    padding: 2rem;
+   559	    width: 90%;
+   560	    max-width: 500px;
+   561	    border-radius: 12px;
+   562	    animation: slideIn 0.3s ease;
+   563	}
+   564	
+   565	@keyframes fadeIn {
+   566	    from { opacity: 0; }
+   567	    to { opacity: 1; }
+   568	}
+   569	
+   570	@keyframes slideIn {
+   571	    from {
+   572	        transform: translateY(-50px);
+   573	        opacity: 0;
+   574	    }
+   575	    to {
+   576	        transform: translateY(0);
+   577	        opacity: 1;
+   578	    }
+   579	}
+   580	
+   581	.close {
+   582	    position: absolute;
+   583	    right: 1.5rem;
+   584	    top: 1rem;
+   585	    font-size: 2rem;
+   586	    font-weight: 700;
+   587	    color: var(--text-light);
+   588	    cursor: pointer;
+   589	    transition: var(--transition);
+   590	}
+   591	
+   592	.close:hover {
+   593	    color: var(--text-dark);
+   594	}
+   595	
+   596	.auth-form h2 {
+   597	    margin-bottom: 1.5rem;
+   598	    color: var(--text-dark);
+   599	}
+   600	
+   601	.form-group {
+   602	    margin-bottom: 1.5rem;
+   603	}
+   604	
+   605	.form-group label {
+   606	    display: block;
+   607	    margin-bottom: 0.5rem;
+   608	    font-weight: 600;
+   609	    color: var(--text-dark);
+   610	}
+   611	
+   612	.form-group input,
+   613	.form-group select,
+   614	.form-group textarea {
+   615	    width: 100%;
+   616	    padding: 0.75rem;
+   617	    border: 2px solid var(--border-color);
+   618	    border-radius: 8px;
+   619	    font-size: 1rem;
+   620	    transition: var(--transition);
+   621	}
+   622	
+   623	.form-group input:focus,
+   624	.form-group select:focus,
+   625	.form-group textarea:focus {
+   626	    outline: none;
+   627	    border-color: var(--primary-color);
+   628	}
+   629	
+   630	.form-footer {
+   631	    text-align: center;
+   632	    margin-top: 1rem;
+   633	    color: var(--text-light);
+   634	}
+   635	
+   636	.form-footer a {
+   637	    color: var(--primary-color);
+   638	    text-decoration: none;
+   639	    font-weight: 600;
+   640	}
+   641	
+   642	.form-footer a:hover {
+   643	    text-decoration: underline;
+   644	}
+   645	
+   646	/* ==================== Responsive Design ==================== */
+   647	@media (max-width: 768px) {
+   648	    .nav-menu {
+   649	        display: none;
+   650	        position: absolute;
+   651	        top: 100%;
+   652	        left: 0;
+   653	        width: 100%;
+   654	        background: var(--bg-white);
+   655	        flex-direction: column;
+   656	        padding: 1rem;
+   657	        box-shadow: var(--shadow-lg);
+   658	    }
+   659	
+   660	    .nav-menu.active {
+   661	        display: flex;
+   662	    }
+   663	
+   664	    .nav-toggle {
+   665	        display: flex;
+   666	    }
+   667	
+   668	    .nav-actions {
+   669	        display: none;
+   670	    }
+   671	
+   672	    .hero-title {
+   673	        font-size: 2rem;
+   674	    }
+   675	
+   676	    .hero-subtitle {
+   677	        font-size: 1.2rem;
+   678	    }
+   679	
+   680	    .hero-buttons {
+   681	        flex-direction: column;
+   682	    }
+   683	
+   684	    .hero-stats {
+   685	        flex-direction: column;
+   686	        gap: 1rem;
+   687	    }
+   688	
+   689	    .steps {
+   690	        flex-direction: column;
+   691	    }
+   692	
+   693	    .step-arrow {
+   694	        transform: rotate(90deg);
+   695	    }
+   696	
+   697	    .features-grid {
+   698	        grid-template-columns: 1fr;
+   699	    }
+   700	}
+   701	
+   702	@media (max-width: 480px) {
+   703	    .hero-title {
+   704	        font-size: 1.5rem;
+   705	    }
+   706	
+   707	    .section-title {
+   708	        font-size: 1.8rem;
+   709	    }
+   710	
+   711	    .btn-hero-primary,
+   712	    .btn-hero-secondary {
+   713	        padding: 0.75rem 1.5rem;
+   714	        font-size: 1rem;
+   715	    }
+   716	}
